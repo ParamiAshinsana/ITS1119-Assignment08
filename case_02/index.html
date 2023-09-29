@@ -57,11 +57,11 @@
 <main>
     <section id="light">
         <div class="light" style="background-color: #00f;">1</div>
-        <div class="light" style="background-color: #ffa500;"></div>
-        <div class="light" style="background-color: #ff69b4;"></div>
-        <div class="light" style="background-color: #FA8072;"></div>
-        <div class="light" style="background-color: #f00;"></div>
-        <div class="light" style="background-color: #0f0;">6</div>
+        <div class="light" style="background-color: #0f0;"></div>
+        <div class="light" style="background-color: #03fce3;"></div>
+        <div class="light" style="background-color: #f0fc03;"></div>
+        <div class="light" style="background-color: #fc6203;"></div>
+        <div class="light" style="background-color: #f00;">6</div>
     </section>
 
     <section id="button_set">
@@ -75,28 +75,29 @@
 <script>
     var C1 = 0;
     var light_Count = 6;
-    var interval_ID = null;
+    var light_ID = null;
 
     const updateLightPanel = () => {
         C1++;
         $(".light").eq(C1 % light_Count).css("background", "#00f");
-        $(".light").eq(C1 % light_Count-1).css("background", "#ffa500");
-        $(".light").eq(C1 % light_Count-2).css("background", "#ff69b4");
-        $(".light").eq(C1 % light_Count-3).css("background", "#FA8072");
-        $(".light").eq(C1 % light_Count-4).css("background", "#f00");
-        $(".light").eq(C1 % light_Count-5).css("background", "#0f0");
+        $(".light").eq(C1 % light_Count-1).css("background", "#0f0");
+        $(".light").eq(C1 % light_Count-2).css("background", "#03fce3");
+        $(".light").eq(C1 % light_Count-3).css("background", "#f0fc03");
+        $(".light").eq(C1 % light_Count-4).css("background", "#fc6203");
+        $(".light").eq(C1 % light_Count-5).css("background", "#f00");
+
 
     }
 
     $("button:first-child").on("click", () => {
-        if (interval_ID == null) {
-            interval_ID = setInterval(updateLightPanel, 800);
+        if (light_ID == null) {
+            light_ID = setInterval(updateLightPanel, 800);
         }
     });
 
     $("button:nth-child(2)").on("click", () => {
-        clearInterval(interval_ID);
-        interval_ID = null;
+        clearInterval(light_ID);
+        light_ID = null;
     });
 </script>
 </body>
